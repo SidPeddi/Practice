@@ -8,7 +8,7 @@ class Solution(object):
         ans = 1
         nums.sort()
         start = nums[0]
-        for index, val in enumerate(nums):
+        for val in nums:
             if val - start > k:
                 start = val
                 ans += 1
