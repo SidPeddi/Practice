@@ -1,21 +1,19 @@
-class Solution(object):
-    def findMaxLength(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        ans = 0
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
         count = 0
-        counts = {}
-        counts[0] = -1
-        
-        
-        for i, num in enumerate(nums):
-            count += 1 if num else -1
-            if count in counts:
-                ans = max(ans, i - counts[count] )
+        max_length=0
+        table = {0: 0}
+        for index, num in enumerate(nums, 1):
+            if num == 0:
+                count -= 1
             else:
-                counts[count] = i
-        return ans
+                count += 1
             
+            if count in table:
+                max_length = max(max_length, index - table[count])
+            else:
+                table[count] = index
+        
+        return max_length
                 
+        
