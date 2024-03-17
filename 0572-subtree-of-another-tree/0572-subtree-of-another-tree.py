@@ -6,9 +6,6 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        
-        
-        
         if not subRoot:
             return True
         if not root:
@@ -16,9 +13,22 @@ class Solution:
         if self.sameTree(root,subRoot):
             return True
         return self.isSubtree(root.left,subRoot) or self.isSubtree(root.right,subRoot) 
-    def sameTree(self, s, t):
-        if not s and not t:
-            return True
-        if s and t and s.val == t.val:
-            return self.sameTree(s.left, t.left) and self.sameTree(s.right, t.right)
-        return False
+    
+    
+    def sameTree(self, p, q):
+        stack = [(p, q)]
+        while stack:
+            p, q = stack.pop()
+            if p == None and q == None:
+                continue
+            
+            if p == None or q == None:
+                return False
+            
+            if p.val != q.val:
+                return False
+            
+            stack.append((p.left, q.left))
+            stack.append((p.right, q.right))
+            
+        return True
