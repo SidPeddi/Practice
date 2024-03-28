@@ -5,22 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
-        if not root:
+    
+    def dfs(self, node, tSum, targetSum):
+        if not node:
             return False
+        
+        if not node.left and not node.right and (tSum + node.val) == targetSum:
+            return True
+        tSum += node.val
+        return self.dfs(node.left, tSum, targetSum) or         self.dfs(node.right, tSum, targetSum)
 
-        stack = [(root, 0)]
-        while stack:
-            node, curr = stack.pop()
-            # if both children are null, then the node is a leaf
-            if node.left == None and node.right == None:
-                if (curr + node.val) == targetSum:
-                    return True
 
-            curr += node.val
-            if node.left:
-                stack.append((node.left, curr))
-            if node.right:
-                stack.append((node.right, curr))
-
-        return False 
+    
+    
+    
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        return self.dfs(root, 0, targetSum)
