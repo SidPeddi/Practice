@@ -8,10 +8,6 @@ class Solution:
             first = (heapq.heappop(sticks))
             second = (heapq.heappop(sticks))
             heapq.heappush(sticks, first + second)
-            count += second
-            count += first
-            print(first)
-            print(second)
-            print(count)
+            count += second + first
         return count
 
