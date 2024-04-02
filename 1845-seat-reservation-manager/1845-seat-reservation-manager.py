@@ -2,7 +2,6 @@ from heapq import *
 class SeatManager:
 
     def __init__(self, n: int):
-        self.n = n
         self.heap = []
         for i in range(n):
             heappush(self.heap, i+1)
