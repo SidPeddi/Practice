@@ -2,9 +2,8 @@ from heapq import *
 class SeatManager:
 
     def __init__(self, n: int):
-        self.heap = []
-        for i in range(n):
-            heappush(self.heap, i+1)
+        self.heap = [i for i in range(1,n+1)]
+        heapify(self.heap)
         
 
     def reserve(self) -> int:
