@@ -8,8 +8,8 @@ class Solution:
                 if total > val:
                     total = x
                     count += 1
-                if count > days:
-                    return False
+                    if count > days:
+                        return False
             return True
                 
                            
