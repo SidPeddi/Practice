@@ -5,9 +5,8 @@ class Solution:
         ans = []
         for key,v in items:
             heapq.heappush(heap, (-v,key))
-        while k != 0:
+        while k > 0:
             _,key = heapq.heappop(heap)
-            print(key)
             ans.append(key)
             k -= 1
         return ans
