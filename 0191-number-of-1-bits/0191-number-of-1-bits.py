@@ -1,12 +1,10 @@
-class Solution(object):
-    def hammingWeight(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        res = 0
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        count = 0
         while n:
-            n &= n-1
-            res += 1
-        return res
+            if n % 2:
+                count += 1
+            n = n >> 1
+        print(n >> 4)
+        return count
         
