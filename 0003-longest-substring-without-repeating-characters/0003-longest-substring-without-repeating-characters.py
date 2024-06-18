@@ -4,14 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        count = 0
-        left = 0
-        map = {}
-
-        for i,val in enumerate(s):
-            if val in map:
-                left = max(left, map[val])
-            count = max (count, i - left + 1 )   
-            map[val] = i + 1
-        return count
-                
+        l = 0
+        hashmap = set()
+        ans = 0
+        for r in range(len(s)):
+            while s[r] in hashmap:
+                hashmap.remove(s[l])
+                l += 1
+            ans = max(ans, r-l+1)
+            hashmap.add(s[r])
+        return ans
