@@ -4,29 +4,25 @@ class Solution(object):
         :type words: List[str]
         :rtype: int
         """
-        hashmap = {}
+        
+        
+        Hash = {}
         doubleset = set()
-        count = 0
         ans = 0
         for x in words:
+            if Hash.get(x[::-1]):
+                ans += 4
+                Hash[x[::-1]] = Hash.get(x[::-1],0) - 1
+            else:
+                Hash[x] = Hash.get(x,0) + 1
             if x[::-1] == x:
                 if x in doubleset:
                     doubleset.remove(x)
-                    ans += 4
                 else:
                     doubleset.add(x)
-            elif x[::-1] in hashmap:
-                if hashmap[x[::-1]] == 1:
-                    del hashmap[x[::-1]]
-                else:
-                    hashmap[x[::-1]] -= 1
-                ans += 4
-            else:
-                hashmap[x] = hashmap.get(x,0) + 1
         if doubleset:
-            count = 2
-        print(count)
-        return ans + count
+            ans += 2
+        return ans 
                 
                 
         
