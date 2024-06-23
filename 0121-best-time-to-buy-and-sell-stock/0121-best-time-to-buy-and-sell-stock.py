@@ -4,11 +4,10 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        small = prices[0]
+        temp = prices[0]
         profit = 0
-
         for x in prices:
-            if x < small:
-                small = x
-            profit = max(profit, x-small)
+            if x < temp:
+                temp = x
+            profit = max(profit, x - temp)
         return profit
