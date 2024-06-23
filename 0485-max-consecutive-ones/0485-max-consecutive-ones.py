@@ -7,9 +7,9 @@ class Solution(object):
         count = 0
         res = 0
         for x in nums:
-            if x == 1:
+            if x:
                 count += 1
-            if x == 0:
+            else:
                 res = max(res,count)
                 count = 0
                 
