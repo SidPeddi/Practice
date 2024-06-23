@@ -9,7 +9,8 @@ class Solution(object):
         for x in nums:
             if x == 1:
                 count += 1
-            res = max(res,count)
             if x == 0:
+                res = max(res,count)
                 count = 0
-        return res
+                
+        return max(res,count)
