@@ -4,14 +4,14 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        strs_table = {}
-
-        for string in strs:
-            sorted_string = ''.join(sorted(string))
-
-            if sorted_string not in strs_table:
-                strs_table[sorted_string] = []
-
-            strs_table[sorted_string].append(string)
-
-        return list(strs_table.values())
+        
+        ans = defaultdict(list)
+        for x in strs:
+            temp = ''.join(sorted(x))
+            if temp not in ans:
+                ans[temp] = []
+            ans[temp].append(x)
+                
+        return list(ans.values())
+    
+        
