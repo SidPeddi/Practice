@@ -5,20 +5,27 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        for x in range(len(nums)):
-            if nums[x] % 2 == 0:
-                nums[x] = 0
-            if nums[x] % 2 == 1:
-                nums[x] = 1
+        ans = []
+        m = 0
+        sums = 0
         count = 0
-        sum = 0
-        dic = {}
-        dic[0] = 1
-        for i in range(len(nums)):
-            sum += nums[i]
-            if sum-k in dic:
-                count += dic[sum-k]
-            dic[sum] = dic.get(sum, 0)+1
-        return count
-                
+        l = 0
+        for x in nums:
+            ans.append(x % 2)
+        
+        for r in ans:
+            sums += r
             
+            while sums > k:
+                sums -= ans[l]
+                l += 1
+                m = l
+                
+            if sums == k:
+                while ans[m] == 0:
+                    m += 1
+                count += (m-l) + 1
+            print(r,sums)
+        return count
+            
+        
