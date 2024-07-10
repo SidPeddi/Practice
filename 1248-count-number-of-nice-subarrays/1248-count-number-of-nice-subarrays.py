@@ -5,27 +5,23 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        ans = []
         m = 0
         sums = 0
         count = 0
         l = 0
-        for x in nums:
-            ans.append(x % 2)
-        
-        for r in ans:
-            sums += r
+
+        for r in nums:
+            sums += (r % 2)
             
             while sums > k:
-                sums -= ans[l]
+                sums -= (nums[l] % 2)
                 l += 1
                 m = l
                 
             if sums == k:
-                while ans[m] == 0:
+                while (nums[m] % 2) == 0:
                     m += 1
                 count += (m-l) + 1
-            print(r,sums)
         return count
             
         
