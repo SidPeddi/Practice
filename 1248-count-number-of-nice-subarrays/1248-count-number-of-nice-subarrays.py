@@ -5,23 +5,17 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        m = 0
-        sums = 0
-        count = 0
-        l = 0
-
-        for r in nums:
-            sums += (r % 2)
-            
-            while sums > k:
-                sums -= (nums[l] % 2)
-                l += 1
-                m = l
-                
-            if sums == k:
-                while (nums[m] % 2) == 0:
-                    m += 1
-                count += (m-l) + 1
-        return count
-            
+  
         
+        count = 0
+        sum = 0
+        dic = {}
+        dic[0] = 1
+        for i in range(len(nums)):
+            sum += (nums[i] % 2)
+            if sum-k in dic:
+                count += dic[sum-k]
+            dic[sum] = dic.get(sum, 0)+1
+        return count
+                
+            
