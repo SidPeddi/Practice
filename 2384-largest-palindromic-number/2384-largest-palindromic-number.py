@@ -22,7 +22,6 @@ class Solution(object):
                 ans = ans[1:]
             else:
                 break
-        if not ans and not mid:
-            return '0'
-        return ans + mid + ans[::-1]
+
+        return (ans + mid + ans[::-1]) or '0'
         
