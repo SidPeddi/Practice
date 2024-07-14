@@ -8,15 +8,10 @@ class Solution:
                     ans.append(c)
                     counts[c] = counts.get(c,0) - 1
                 del counts[c]
-        
-        temp = list(counts)
-        for c in temp:
-            if c in temp:
-                while counts[c]:
-                    ans.append(c)
-                    counts[c] = counts.get(c,0) - 1
-                del counts[c]
-        return ''.join(ans)
+                s = s.replace(c, '')
+        temp = ''.join(ans)
+        temp += s
+        return temp
                 
                 
                 
