@@ -3,7 +3,7 @@ class Solution:
         hashset = set(nums1)
         my_list = list(hashset)
         ans = 0
-        for x in range(len(nums1)):
+        for x in range(len(my_list)):
             left = x
             right = len(nums2) - 1
             while left <= right:
