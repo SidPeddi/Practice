@@ -1,19 +1,18 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        left,right = 1, max(piles)
-        
-        def search(speed):
+        def choose(mid):
             ans = 0
             for x in piles:
-                ans += ceil(x/speed)
+                ans += ceil(x/mid)
             return ans
         
-        
-        while left <= right:
-            mid = (right + left) // 2
-
-            if search(mid) <= h:
-                right = mid - 1
+        left = 1
+        right = max(piles)
+        while left < right:
+            mid = (left + right) // 2
+            if choose(mid) <= h:
+                right = mid
             else:
                 left = mid + 1
         return left
+        
