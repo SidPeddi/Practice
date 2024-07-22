@@ -3,8 +3,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        for x in range(k):
-            nums.insert(0,nums.pop())
+        k %= len(nums)
+        nums[:] = nums[-k:] + nums[:-k] 
         return
         
