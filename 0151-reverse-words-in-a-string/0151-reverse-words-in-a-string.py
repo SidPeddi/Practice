@@ -12,6 +12,7 @@ class Solution:
                     r += 1
                 start = r
             r += 1
-        return ' '.join(ans[::-1])
+        ans = ans[::-1]
+        return ' '.join(ans)
             
         
