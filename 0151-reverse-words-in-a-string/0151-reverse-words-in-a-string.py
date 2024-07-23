@@ -6,7 +6,7 @@ class Solution:
         start = 0
         s += ' '
         while r < len(s):
-            if s[r].isalnum() == False and r < len(s):
+            if s[r].isalnum() == False:
                 ans.append(s[start:r])
                 while s[r] == ' ' and (r + 1) < len(s):
                     r += 1
