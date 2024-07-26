@@ -1,7 +1,5 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        ans = ((n+1)*(n))//2
-        numset = set(nums)
-        return [sum(nums)-sum(numset),ans-sum(numset)]
+        ans = ((len(nums)+1)*(len(nums)))//2
+        return [sum(nums)-sum(set(nums)),ans-sum(set(nums))]
       
