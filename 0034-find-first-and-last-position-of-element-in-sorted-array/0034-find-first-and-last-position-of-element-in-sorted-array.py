@@ -8,9 +8,9 @@ class Solution:
             mid = (left + right) // 2
             if nums[mid] == target:
                 mi,ma = mid,mid
-                while ma + 1 < len(nums) and nums[ma + 1] == target:
+                while ma + 1 <= right and nums[ma + 1] == target:
                     ma += 1
-                while mi - 1 > -1 and nums[mi - 1] == target:
+                while mi - 1 >= left and nums[mi - 1] == target:
                     mi -= 1
                 break  
             if nums[mid] > target:
