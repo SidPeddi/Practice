@@ -1,22 +1,18 @@
-class Solution(object):
-    def numPairsDivisibleBy60(self, time):
-        """
-        :type time: List[int]
-        :rtype: int
-        """
-        HashMap = {}
-        pairs = 0
+class Solution:
+    def numPairsDivisibleBy60(self, time: List[int]) -> int:
         
-        for t in time:
-            numMod = t % 60
+        ans = {}
+        count = 0
+        for x in time:
+            tempsum = x % 60
+            if tempsum != 0:
+                if (60 - (tempsum)) in ans:
+                    count += ans[60-tempsum]
+                ans[tempsum] = ans.get(tempsum,0) + 1
+            else:
+                if ((tempsum)) in ans:
+                    count += ans[tempsum]
+                ans[tempsum] = ans.get(tempsum,0) + 1
+        return count
             
-            if numMod == 0:
-                if 0 in HashMap:
-                    pairs += HashMap[0]
-            elif (60 - numMod) in HashMap:
-                pairs += HashMap[60 - numMod]
-                
-            HashMap[numMod] = HashMap.get(numMod,0) + 1
-
-                
-        return pairs
+        
