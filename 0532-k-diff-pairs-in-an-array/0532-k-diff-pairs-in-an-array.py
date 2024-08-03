@@ -1,22 +1,20 @@
-class Solution(object):
-    def findPairs(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        ans = 0
-        myset = set(nums)
-
-        if k == 0:
-            maps = {}
+class Solution:
+    def findPairs(self, nums: List[int], k: int) -> int:
+        count = 0
+        nums.sort()
+        if k != 0:
+            nums = set(nums)
             for x in nums:
-                maps[x] = maps.get(x,0) + 1
-            for x in myset:
-                if maps[x] > 1:
-                    ans += 1
+                if x + k in nums:
+                    count += 1
         else:
-            for x in myset:
-                if (x-k) in myset:
-                    ans += 1
-        return ans
+            counts = Counter(nums)
+            for x in list(counts):
+                if counts[x] > 1:
+                    count += 1
+          
+        return count
+                
+            
+        
+        
