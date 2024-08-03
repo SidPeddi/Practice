@@ -8,5 +8,8 @@ class Solution:
             if num*2 in counts:
                 counts[num] -= 1
                 counts[num*2] -= 1
-        
-        return all([True if counts[x] == 0 else False for x in counts])
+
+        for x in list(counts):
+            if counts[x] != 0:
+                return False
+        return True
