@@ -5,7 +5,6 @@ class Solution:
             temp = [nums[l]]
             for r in range(l+1,len(nums)):
                 temp.append(temp[-1] + nums[r])
-            l += 1
             ans += temp
         ans.sort()
 
